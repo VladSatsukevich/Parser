@@ -23,7 +23,7 @@ def product_parsing(file_name, url)
   download_page = download_method(url + '.html')
   name  = download_page.xpath('//h1[@class = "product_main_name"]/text()')
   image = download_page.xpath('//img[@class = "replace-2x img-responsive"]/@src')
-  variations = download_page.xpath('//ul[@class = "attribute_radio_list pundaline-variations"]/li')
+  variations = download_page.xpath('//div[contains(@class, "attribute_list")]/ul/li')
   variations.each do |variation|
     price = variation.xpath('.//span[@class = "price_comb"]/text()')
     weigth = variation.xpath('.//span[@class = "radio_label"]/text()')
