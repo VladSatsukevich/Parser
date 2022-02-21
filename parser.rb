@@ -56,10 +56,10 @@ end
 
 def page_parsing(file_name, inputted_page)
   downloaded_page = get_page(inputted_page)
-  parse_product_url = downloaded_page.xpath("//*[@class = 'product_img_link pro_img_hover_scale product-list-category-img']/@href")
-  parse_url_list = parse_product_url.to_s.split(/.html/)
+  parsed_product_url = downloaded_page.xpath("//*[@class = 'product_img_link pro_img_hover_scale product-list-category-img']/@href")
+  parsed_url_list = parsed_product_url.to_s.split(/.html/)
   puts "Start parsing products page:"
-  parse_url_list.each { |url_link| product_parsing(file_name, url_link)}
+  parsed_url_list.each { |url_link| product_parsing(file_name, url_link)}
 end
 
 initialization
